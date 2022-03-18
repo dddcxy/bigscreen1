@@ -7,8 +7,7 @@
       <div class="mainSection">
         <!-- 主体上部 数字统计区 -->
         <div class="sectionTop">
-          <!-- <num-statistics></num-statistics> -->
-          <num1></num1>
+          <num-statistics></num-statistics>
         </div>
         <!-- 主体下部 -->
         <div class="sectionBottom">
@@ -93,7 +92,6 @@ import multiPieChart from "../components/multiPieChart"
 import twoBarChart from "../components/twoBarChart"
 // 漏斗图组件
 import funnelChart from "../components/funnelChart"
-import num1 from "../components/num1"
 
 export default {
   components: {
@@ -107,7 +105,6 @@ export default {
     multiPieChart,
     twoBarChart,
     funnelChart,
-    num1
   },
   data() {
     return {
