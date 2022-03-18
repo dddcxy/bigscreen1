@@ -1,5 +1,5 @@
 <template>
-  <div style="width: 100%; height: calc(100% - 51px); position: relative">
+  <div style="width: 100%; height: 100%; position: relative">
     <div ref="map" style="width: 100%; height: 100%"></div>
     <div class="changeBtn">
       <div
@@ -85,6 +85,10 @@ export default {
         ],
       ],
     },
+    title:{
+      type:String,
+      default:"劳动转移情况"
+    }
   },
   data() {
     return {
@@ -103,7 +107,7 @@ export default {
    * 销毁图表实例，防止内存溢出
    */
   beforeDestroy() {
-    let myCharts = this.$echarts.init(this.$refs.oneBarLine);
+    let myCharts = this.$echarts.init(this.$refs.map);
     myCharts.dispose();
   },
   computed: {
@@ -140,7 +144,7 @@ export default {
         title: {
           top: 0,
           left: 0,
-          text: "劳动转移情况",
+          text: this.title,
           subtext: "",
           textStyle: {
             color: "#aee0ff",

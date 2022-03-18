@@ -38,12 +38,17 @@ export default {
       type: Number,
       default: 2000,
     },
+    unit:{
+      type: String,
+      default: '人'
+    }
   },
   data() {
     return {
       nameData: [],
       numData: [],
       maxDataArr: [],
+      total:0
     };
   },
   mounted() {
@@ -54,7 +59,7 @@ export default {
    * 销毁图表实例，防止内存溢出
    */
   beforeDestroy() {
-    let myCharts = this.$echarts.init(this.$refs.pie);
+    let myCharts = this.$echarts.init(this.$refs.columnBar);
     myCharts.dispose();
   },
   methods: {
@@ -64,6 +69,12 @@ export default {
       for (let i = 0; i < this.data.length; i++) {
         this.maxDataArr.push(this.maxData);
       }
+      // 计算总数
+      let total = 0;
+      this.data.forEach((item) => {
+        total += parseInt(item.num);
+      });
+      this.total = total;
     },
     /**
      * 初始化实例
@@ -87,18 +98,8 @@ export default {
           axisPointer: {
             type: "none",
           },
-          formatter: function (params) {
-            return (
-              params[0].name +
-              "<br/>" +
-              "<span style='display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:rgba(36,207,233,0.9)'></span>" +
-              params[0].seriesName +
-              " : " +
-              Number(
-                (params[0].value.toFixed(4) / 10000).toFixed(2)
-              ).toLocaleString() +
-              " 万元<br/>"
-            );
+          formatter: params => {
+            return params[0].name+"\n\n"+params[0].value+this.unit
           },
         },
         xAxis: {
@@ -112,7 +113,7 @@ export default {
             axisLabel: {
               show: true,
               textStyle: {
-                color: "#fff",
+                color: "#58b5f5",
               },
             },
             splitLine: {
@@ -137,11 +138,11 @@ export default {
                 color: "#ffffff",
                 fontSize: "12",
               },
-              formatter: function (value) {
+              formatter: value => {
                 if (value >= 10000) {
-                  return (value / 10000).toLocaleString() + "万";
+                  return (value / 10000).toLocaleString() + "万" + this.unit + "\t\t" + ((value/this.total)*100).toFixed(2)+"%";
                 } else {
-                  return value.toLocaleString();
+                  return value.toLocaleString() + "\t\t" + ((value/this.total)*100).toFixed(2)+"%";
                 }
               },
             },
@@ -150,7 +151,7 @@ export default {
         ],
         series: [
           {
-            name: "金额",
+            name: "人数",
             type: "bar",
             zlevel: 1,
             itemStyle: {

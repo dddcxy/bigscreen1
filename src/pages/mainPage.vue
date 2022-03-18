@@ -7,7 +7,8 @@
       <div class="mainSection">
         <!-- 主体上部 数字统计区 -->
         <div class="sectionTop">
-          <num-statistics></num-statistics>
+          <!-- <num-statistics></num-statistics> -->
+          <num1></num1>
         </div>
         <!-- 主体下部 -->
         <div class="sectionBottom">
@@ -23,6 +24,7 @@
             </div>
             <div class="sectionBottom-side-item">
               <item-title :title="'学历分布'"></item-title>
+              <funnel-chart></funnel-chart>
             </div>
           </div>
           <!-- 主体下部 中部图表区 -->
@@ -31,7 +33,9 @@
             <div class="sectionBottom-center-top">
               <map-chart></map-chart>
             </div>
-            <div class="sectionBottom-center-bottom"></div>
+            <div class="sectionBottom-center-bottom">
+              <multi-pie-chart></multi-pie-chart>
+            </div>
           </div>
           <!-- 主体下部 右部图表区 -->
           <div class="sectionBottom-side">
@@ -59,6 +63,7 @@
             </div>
             <div class="sectionBottom-side-item">
               <item-title :title="'近6个月档案接收和转出情况'"></item-title>
+              <two-bar-chart></two-bar-chart>
             </div>
           </div>
         </div>
@@ -80,8 +85,15 @@ import itemTitle from "../components/itemTitle";
 import mapChart from "../components/mapChart";
 // 饼图组件
 import pieChart from "../components/pieChart";
-// 横向柱状图
+// 横向柱状图组件
 import columnBarChart from "../components/columnBarChart";
+// 多饼图组件
+import multiPieChart from "../components/multiPieChart"
+// 双量柱状图组件
+import twoBarChart from "../components/twoBarChart"
+// 漏斗图组件
+import funnelChart from "../components/funnelChart"
+import num1 from "../components/num1"
 
 export default {
   components: {
@@ -92,6 +104,10 @@ export default {
     mapChart,
     pieChart,
     columnBarChart,
+    multiPieChart,
+    twoBarChart,
+    funnelChart,
+    num1
   },
   data() {
     return {
@@ -158,7 +174,7 @@ export default {
           height: 580px;
         }
         .sectionBottom-center-bottom {
-          height: 200px;
+          height: 250px;
         }
       }
     }

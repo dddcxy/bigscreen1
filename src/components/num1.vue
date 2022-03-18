@@ -21,13 +21,24 @@
         <!-- 标题 -->
         <div class="showTitle">{{ item.title }}</div>
         <div class="showData">
-          <span
+          <div
             class="showNum"
-            v-for="(item1, index1) in item.num.toString().length"
+            v-for="(item1, index1) in item.num.toString().split('')"
             :key="index1"
           >
-            {{ numToArray(item.num)[index1] }}
-          </span>
+            <div class="showNum-item" :style="{transform: `translateY(-${item1*40}px)`}">
+              <div>0</div>
+              <div>1</div>
+              <div>2</div>
+              <div>3</div>
+              <div>4</div>
+              <div>5</div>
+              <div>6</div>
+              <div>7</div>
+              <div>8</div>
+              <div>9</div>
+            </div>
+          </div>
           <span class="showUnit">{{ item.unit }}</span>
           同比<span
             class="showTb"
@@ -86,6 +97,14 @@ export default {
       ],
     },
   },
+  mounted() {
+    setInterval(()=>{
+      this.data[0].num++
+      this.data[1].num+=5
+      this.data[2].num+=10
+      this.data[3].num+=100
+    },2000)
+  },
   methods: {
     /**
      * 数字转为数组
@@ -131,20 +150,30 @@ export default {
         height: 60%;
       }
       .showNum {
+        border-radius: 2px;
+        border: solid 2px #274d8e;
+        font-weight: bold;
+        text-align: center;
         display: inline-block;
         width: 30px;
         height: 40px;
-        line-height: 40px;
-        border-radius: 2px;
-        border: solid 2px #274d8e;
         font-size: 28px;
-        font-family: Impact;
-        font-weight: bold;
-        background: linear-gradient(to bottom, #ffffff, #a8daff);
-        -webkit-background-clip: text;
-        color: transparent;
+        margin-left: 3px;
+        line-height: 40px;
         text-align: center;
-        margin-right: 3px;
+        overflow: hidden;
+        position: relative;
+        background: -webkit-gradient(linear, 0 0, 0 100%, from(#001d41), to(#33414d));
+        .showNum-item{
+          transition: all 1s ease-out;
+          background: linear-gradient(to right, #ffffff, #a8daff);
+          -webkit-background-clip: text;
+          color: transparent;
+        }
+        .showNum>div{
+          width: 30px;
+          height: 40px;
+        }
       }
       .showUnit {
         width: 14px;
