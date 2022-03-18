@@ -1,5 +1,7 @@
 <template>
-  <div ref="twoBar" style="width: 100%; height: calc(100% - 51px)"></div>
+  <div style="width: 100%; height: calc(100% - 51px);overflow:hidden">
+    <div ref="twoBar" style="width: 100%; height: 100%"></div>
+  </div>
 </template>
 
 <script>
@@ -124,6 +126,7 @@ export default {
       return {
         color: ["#1A64F8"],
         tooltip: {
+          confine: true,
           trigger: "axis",
           axisPointer: {
             type: "none",
