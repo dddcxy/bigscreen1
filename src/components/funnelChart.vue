@@ -71,7 +71,6 @@ export default {
                   color: "#fff",
                 },
                 formatter: (p) => {
-                  console.log(p);
                   return (
                     "{name|" +
                     p.name +

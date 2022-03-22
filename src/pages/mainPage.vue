@@ -7,7 +7,7 @@
       <div class="mainSection">
         <!-- 主体上部 数字统计区 -->
         <div class="sectionTop">
-          <num-statistics></num-statistics>
+          <num-statistics :data="numStatisticsData"></num-statistics>
         </div>
         <!-- 主体下部 -->
         <div class="sectionBottom">
@@ -87,11 +87,11 @@ import pieChart from "../components/pieChart";
 // 横向柱状图组件
 import columnBarChart from "../components/columnBarChart";
 // 多饼图组件
-import multiPieChart from "../components/multiPieChart"
+import multiPieChart from "../components/multiPieChart";
 // 双量柱状图组件
-import twoBarChart from "../components/twoBarChart"
+import twoBarChart from "../components/twoBarChart";
 // 漏斗图组件
-import funnelChart from "../components/funnelChart"
+import funnelChart from "../components/funnelChart";
 
 export default {
   components: {
@@ -130,7 +130,20 @@ export default {
         },
       ],
       cdmzfxColor: ["#125bff", "#1afbff"],
+
+      numStatisticsData:[]
     };
+  },
+  mounted() {
+    this.getData()
+  },
+  methods: {
+    getData() {
+      this.$http.post('/ldrkda/getData').then(res => {
+        console.log(res);
+        this.numStatisticsData = res.data.data.numStatisticsData
+      })
+    },
   },
 };
 </script>

@@ -109,11 +109,11 @@ export default {
     /**
      * 数字转为数组
      */
-    numToArray(num) {
-      let str = num.toString();
-      let arr = str.split("");
-      return arr;
-    },
+    // numToArray(num) {
+    //   let str = num.toString();
+    //   let arr = str.split("");
+    //   return arr;
+    // },
   },
 };
 </script>

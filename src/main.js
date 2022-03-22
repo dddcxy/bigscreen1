@@ -10,6 +10,11 @@ Vue.config.productionTip = false;
 Vue.prototype.$echarts = echarts;
 Vue.prototype.$axios = axios;
 
+// mock接口模拟配置
+import http from "@/api/config"
+import './mock'
+Vue.prototype.$http = http
+
 /* eslint-disable no-new */
 new Vue({
   el: "#app",
