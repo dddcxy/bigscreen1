@@ -11,3 +11,4 @@ package-lock.json
 /config/
 /dist/
 /*.js
+commitlint.config,js

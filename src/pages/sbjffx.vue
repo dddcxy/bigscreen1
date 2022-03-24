@@ -171,7 +171,7 @@ export default {
 .main {
   width: 1920px;
   height: 1080px;
-  background: url("../assets/19/背景.png") no-repeat 100% 100%;
+  background: url('../assets/19/背景.png') no-repeat 100% 100%;
   position: relative;
 }
 
@@ -236,7 +236,7 @@ export default {
   background-color: rgba(36, 56, 128, 0.21);
 }
 .echarts_bg {
-  background: url("../assets/03社保缴费分析/bar_bottom.png") no-repeat 45% 82%;
+  background: url('../assets/03社保缴费分析/bar_bottom.png') no-repeat 45% 82%;
   background-size: 81%;
 }
 .slot {
@@ -259,7 +259,7 @@ export default {
 .center_1_chart {
   width: 100%;
   height: 420px;
-  background: url("../assets/03社保缴费分析/底部.png") no-repeat center 30%;
+  background: url('../assets/03社保缴费分析/底部.png') no-repeat center 30%;
 }
 .tab {
   display: flex;

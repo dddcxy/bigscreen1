@@ -16,6 +16,8 @@
     "vue-router": "^3.0.1"
   },
   "devDependencies": {
+    "@commitlint/cli": "^16.2.3",
+    "@commitlint/config-conventional": "^16.2.1",
     "autoprefixer": "^7.1.2",
     "axios": "^0.26.1",
     "babel-core": "^6.22.1",
@@ -79,7 +81,8 @@
   ],
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS"
     }
   },
   "lint-staged": {
