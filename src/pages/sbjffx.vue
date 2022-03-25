@@ -21,7 +21,7 @@
               </div>
             </title-slot>
             <div class="center_1_chart">
-              <pie-chart></pie-chart>
+              <pie-chart :pieData="pieData"></pie-chart>
             </div>
           </div>
           <!-- 中部中 银河图 各险种缴费明细-->

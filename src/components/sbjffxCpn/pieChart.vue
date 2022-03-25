@@ -52,10 +52,10 @@ export default {
     }
   },
   watch: {
-    // pieData(oldV,newV){
-    //   console.log(1111);
-    //   this.initChart()
-    // }
+    pieData (oldV, newV) {
+      console.log(1111)
+      this.initChart()
+    }
   },
   data () {
     return {}

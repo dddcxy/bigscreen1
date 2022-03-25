@@ -121,7 +121,7 @@ export default {
      * 获取地图数据被注册
      */
     getJsonData () {
-      this.$axios.get('../../static/map/xinjiang.json').then((res) => {
+      this.$axios.get('../../../static/map/xinjiang.json').then((res) => {
         this.$echarts.registerMap('xinjiang', res.data)
         this.initChart()
       })
